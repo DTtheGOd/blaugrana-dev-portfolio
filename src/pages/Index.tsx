@@ -5,17 +5,19 @@ import TechStackSection from "@/components/TechStackSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import StadiumTunnel from "@/components/ui/StadiumTunnel";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      <Navbar />
-      <HeroSection />
-      <AboutSection />
-      <TechStackSection />
-      <ProjectsSection />
-      <ContactSection />
-      <Footer />
+    <div className="min-h-screen bg-transparent text-foreground overflow-x-hidden relative">
+      <StadiumTunnel />
+      <div className="relative z-10">
+        <Navbar />
+        <HeroSection />
+
+        <TechStackSection />
+
+      </div>
     </div>
   );
 };

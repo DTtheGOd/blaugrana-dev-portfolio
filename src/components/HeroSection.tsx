@@ -1,19 +1,13 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Sparkles } from "lucide-react";
-import dhruvPhoto from "@/assets/dhruv-photo.jpg";
+import { ArrowDown } from "lucide-react";
+import barcaPhoto from "@/assets/my pic barca background.jpeg";
 
 const techIcons = ["React", "TypeScript", "Node.js", "MongoDB", "Tailwind", "Python"];
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-diagonal-stripes">
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 right-10 w-72 h-72 rounded-full bg-primary/5 blur-3xl animate-pulse-glow" />
-        <div className="absolute bottom-20 left-10 w-96 h-96 rounded-full bg-secondary/5 blur-3xl animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-primary/5" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-secondary/5" />
-      </div>
+    <section className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Decorative background elements removed to show GridScan */}
 
       <div className="container mx-auto px-6 pt-24 pb-16 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
@@ -56,7 +50,7 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="font-handwritten text-xl text-muted-foreground mb-8 italic"
             >
-              "More than a Developer"
+
             </motion.p>
 
             <motion.div
@@ -66,7 +60,6 @@ const HeroSection = () => {
               className="flex flex-wrap items-center gap-4 mb-10"
             >
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/15 border border-primary/30 text-sm font-heading font-semibold text-primary-foreground">
-                <Sparkles size={14} className="text-accent" />
                 Currently Learning: Next.js
               </span>
               <a
@@ -112,9 +105,9 @@ const HeroSection = () => {
             <div className="relative">
               <div className="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-2xl overflow-hidden border-2 border-primary/30 shadow-lg" style={{ boxShadow: "0 8px 40px hsl(210 100% 30% / 0.3)" }}>
                 <img
-                  src={dhruvPhoto}
+                  src={barcaPhoto}
                   alt="Dhruv Tiwari"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-center"
                 />
               </div>
               <div className="absolute -bottom-3 -right-3 w-full h-full rounded-2xl border border-accent/20 -z-10" />
