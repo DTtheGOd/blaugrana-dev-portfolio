@@ -1,4 +1,4 @@
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
 import { ExternalLink } from "lucide-react";
 
@@ -42,13 +42,24 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
       transition={{ duration: 0.6, delay: index * 0.15 }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="glass-card rounded-2xl overflow-hidden transition-all duration-500 group relative"
-      style={{
-        boxShadow: hovered
-          ? "0 12px 40px -10px hsl(340 100% 32% / 0.25)"
-          : "0 4px 20px -6px hsl(210 100% 30% / 0.1)",
-      }}
+      className={`glass-card rounded-2xl overflow-hidden transition-all duration-500 group relative ${hovered ? "glow-red border-secondary/40" : "glow-blue"
+        }`}
     >
+      {/* Scanning Line Effect */}
+      <AnimatePresence>
+        {hovered && (
+          <motion.div
+            initial={{ top: "-10%" }}
+            animate={{ top: "110%" }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+            className="absolute left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-accent to-transparent z-20 pointer-events-none opacity-50"
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Background patterns */}
+      <div className="absolute inset-0 bg-diagonal-stripes opacity-[0.03] pointer-events-none" />
+
       {/* Top gradient bar */}
       <div className="h-1 bg-gradient-to-r from-primary via-accent to-secondary" />
 

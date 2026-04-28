@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
+import { Link } from "react-router-dom";
 import barcaPhoto from "@/assets/my pic barca background.jpeg";
 
 const techIcons = ["React", "TypeScript", "Node.js", "MongoDB", "Tailwind", "Python"];
@@ -12,63 +13,53 @@ const HeroSection = () => {
       <div className="container mx-auto px-6 pt-24 pb-16 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           <div className="max-w-4xl flex-1">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-            >
-              <span className="font-handwritten text-2xl text-accent mb-4 inline-block">
-                Full Stack Developer
-              </span>
-            </motion.div>
-
             <motion.h1
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15 }}
-              className="font-heading font-black text-5xl sm:text-6xl lg:text-8xl leading-tight mb-6"
+              className="font-heading font-medium text-5xl sm:text-6xl lg:text-8xl leading-[1.1] mb-6 tracking-tight text-gradient-headline"
             >
-              <span className="text-foreground">Building</span>
-              <br />
-              <span className="text-gradient-barca">Skills For</span>
-              <br />
-              <span className="text-secondary">Future.</span>
+              Digital craftsmanship<br />
+              & precise engineering.
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="text-muted-foreground text-lg sm:text-xl max-w-2xl mb-6 leading-relaxed"
+              className="font-body text-muted-foreground text-lg sm:text-xl max-w-2xl mb-4 leading-relaxed font-light"
             >
-              I'm <span className="text-foreground font-semibold">Dhruv</span>, a B.Tech IT student passionate about full-stack development, game design, and UI/UX. I enjoy creating interactive experiences and building innovative web applications.
+              I'm Dhruv — I build creative systems that scale.
             </motion.p>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="font-handwritten text-xl text-muted-foreground mb-8 italic"
+              transition={{ duration: 0.7, delay: 0.4 }}
             >
-
-            </motion.p>
+              <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-10 inline-block">
+                Software Engineer
+              </span>
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.45 }}
-              className="flex flex-wrap items-center gap-4 mb-10"
+              className="flex flex-wrap items-center gap-4 mb-12"
             >
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/15 border border-primary/30 text-sm font-heading font-semibold text-primary-foreground">
-                Currently Learning: Next.js
-              </span>
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-secondary font-heading font-bold text-sm text-secondary-foreground hover:brightness-110 transition-all duration-300 hover:shadow-lg"
-                style={{ boxShadow: "0 4px 20px hsl(340 100% 32% / 0.3)" }}
+              <Link
+                to="/projects"
+                className="inline-flex items-center justify-center px-8 py-3.5 rounded-md bg-secondary text-white font-body font-medium tracking-[0.06em] hover:bg-secondary/90 transition-colors"
+              >
+                View Selected Work
+              </Link>
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center px-8 py-3.5 rounded-md bg-transparent border border-white/10 text-foreground font-body font-medium tracking-[0.06em] hover:border-white/20 hover:bg-white/5 transition-colors"
               >
                 Get In Touch
-              </a>
+              </Link>
             </motion.div>
 
             <motion.div
@@ -103,15 +94,15 @@ const HeroSection = () => {
             className="flex-shrink-0"
           >
             <div className="relative">
-              <div className="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-2xl overflow-hidden border-2 border-primary/30 shadow-lg" style={{ boxShadow: "0 8px 40px hsl(210 100% 30% / 0.3)" }}>
+              <div className="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border border-white/10 shadow-2xl relative z-10 bg-muted">
                 <img
                   src={barcaPhoto}
                   alt="Dhruv Tiwari"
-                  className="w-full h-full object-cover object-center"
+                  className="w-full h-full object-cover object-center mix-blend-luminosity hover:mix-blend-normal transition-all duration-700"
                 />
               </div>
-              <div className="absolute -bottom-3 -right-3 w-full h-full rounded-2xl border border-accent/20 -z-10" />
-              <div className="absolute -top-3 -left-3 w-full h-full rounded-2xl border border-secondary/20 -z-10" />
+              {/* Subtle back glow instead of chaotic borders */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] rounded-full bg-primary/20 blur-3xl -z-10" />
             </div>
           </motion.div>
         </div>

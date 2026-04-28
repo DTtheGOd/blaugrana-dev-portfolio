@@ -37,12 +37,12 @@ const ContactSection = () => {
           transition={{ duration: 0.6 }}
           className="max-w-2xl mx-auto text-center"
         >
-          <h2 className="font-heading font-black text-3xl sm:text-4xl text-secondary mb-2">
-            CONTACTS
+          <div className="w-12 h-1 bg-accent rounded-full mx-auto mb-4" />
+          <h2 className="font-heading font-black text-3xl sm:text-4xl lg:text-5xl text-accent mb-2 italic tracking-wide uppercase">
+            SUB-ME-IN
           </h2>
-          <div className="w-16 h-1 bg-accent rounded-full mb-4 mx-auto" />
-          <p className="text-muted-foreground mb-12 font-handwritten text-xl">
-            Let's build something amazing together
+          <p className="text-muted-foreground font-heading text-sm tracking-[0.3em] uppercase mb-12">
+            — Let's Build Something Amazing —
           </p>
 
           <div className="flex flex-col gap-4 mb-10">

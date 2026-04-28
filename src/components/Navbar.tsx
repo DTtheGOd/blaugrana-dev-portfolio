@@ -1,19 +1,20 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import logo from "@/assets/DT_logo-removebg-preview.png";
 
 const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Tech Stack", href: "#techstack" },
-  { label: "Projects", href: "#projects" },
-  { label: "Achievements", href: "#achievements" },
-  { label: "Contact", href: "#contact" },
+  { label: "Tech Stack", href: "/tech-stack" },
+  { label: "Projects", href: "/projects" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -26,31 +27,35 @@ const Navbar = () => {
       initial={{ y: -80 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "glass-card py-2" : "py-4 bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "glass-card py-2 border-b border-primary/20 shadow-barca" : "py-4 bg-transparent"
         }`}
     >
       <div className="container mx-auto flex items-center justify-between px-6">
-        <a href="#" className="flex items-center">
-          <img src={logo} alt="DT Logo" className="h-16 w-auto object-contain" />
-        </a>
+        <Link to="/" className="flex items-center">
+          <img src={logo} alt="DT Logo" className="h-16 w-auto object-contain brightness-125 contrast-125" />
+        </Link>
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.label}
-              href={link.href}
-              className="font-heading text-sm font-semibold tracking-wide text-muted-foreground hover:text-foreground transition-colors relative group"
+              to={link.href}
+              className={`font-body text-xs font-normal uppercase tracking-[0.12em] transition-colors relative group ${location.pathname === link.href || (link.href.startsWith("/#") && location.pathname === "/" && location.hash === link.href.substring(1))
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-foreground"
+                }`}
             >
               {link.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full" />
-            </a>
+              <span className={`absolute -bottom-1 left-0 h-[1px] bg-primary transition-all duration-300 ${location.pathname === link.href ? "w-full" : "w-0 group-hover:w-full"
+                }`} />
+            </Link>
           ))}
         </div>
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-foreground"
+          className="md:hidden text-accent hover:text-primary transition-colors"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -68,14 +73,17 @@ const Navbar = () => {
           >
             <div className="flex flex-col p-4 gap-4">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.label}
-                  href={link.href}
+                  to={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="font-heading text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors"
+                  className={`font-body text-xs font-normal uppercase tracking-[0.12em] transition-colors ${location.pathname === link.href || (link.href.startsWith("/#") && location.pathname === "/" && location.hash === link.href.substring(1))
+                      ? "text-primary"
+                      : "text-muted-foreground hover:text-foreground"
+                    }`}
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </div>
           </motion.div>

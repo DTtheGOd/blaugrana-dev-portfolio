@@ -4,55 +4,61 @@
 
 @layer base {
   :root {
-    --background: 216 60% 10%;
-    --foreground: 210 20% 92%;
+    /* Blaugrana Noir Palette */
+    --bg-void: #05070F;
+    --bg-surface: #0A0E1A;
+    --bg-elevated: #0F1628;
+    --navy-deep: #071035;
+    
+    --blau-primary: #1A56DB;
+    --blau-glow: rgba(26,86,219,0.15);
+    
+    --grana-fire: #C8102E;
+    --grana-subtle: rgba(200,16,46,0.12);
+    
+    --gold-moment: #C9A84C;
+    
+    --text-primary: #F0EDE8;
+    --text-secondary: #8A8FA8;
+    --text-tertiary: #4A5070;
+    
+    --border-subtle: rgba(255,255,255,0.06);
+    --border-active: rgba(255,255,255,0.14);
 
-    --card: 216 50% 13%;
-    --card-foreground: 210 20% 92%;
+    /* Base Neutral Scale mapped from brand.md */
+    --background: var(--bg-void);
+    --foreground: var(--text-primary);
+    --card: var(--bg-surface);
+    --card-foreground: var(--text-primary);
+    --popover: var(--bg-elevated);
+    --popover-foreground: var(--text-primary);
+    --primary: var(--blau-primary);
+    --primary-foreground: #ffffff;
+    --secondary: var(--grana-fire);
+    --secondary-foreground: #ffffff;
+    --muted: var(--bg-elevated);
+    --muted-foreground: var(--text-secondary);
+    --accent: var(--gold-moment);
+    --accent-foreground: var(--bg-void);
+    --destructive: var(--grana-fire);
+    --destructive-foreground: #ffffff;
+    --border: var(--border-subtle);
+    --input: var(--border-subtle);
+    --ring: var(--blau-primary);
+    --radius: 12px;
 
-    --popover: 216 50% 13%;
-    --popover-foreground: 210 20% 92%;
+    /* Type Scale */
+    --text-display: clamp(3.5rem, 7vw, 6.5rem);
+    --text-title: clamp(2rem, 3.5vw, 3rem);
+    --text-project: clamp(1.6rem, 2.5vw, 2.2rem);
+    --text-label: 0.65rem;
+    --text-body: 1rem;
+    --text-meta: 0.8rem;
 
-    --primary: 210 100% 30%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 340 100% 32%;
-    --secondary-foreground: 0 0% 100%;
-
-    --muted: 216 40% 18%;
-    --muted-foreground: 215 15% 55%;
-
-    --accent: 46 90% 49%;
-    --accent-foreground: 216 60% 10%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 216 30% 22%;
-    --input: 216 30% 22%;
-    --ring: 210 100% 30%;
-
-    --radius: 0.75rem;
-
-    --sidebar-background: 216 50% 13%;
-    --sidebar-foreground: 210 20% 92%;
-    --sidebar-primary: 210 100% 30%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 216 40% 18%;
-    --sidebar-accent-foreground: 210 20% 92%;
-    --sidebar-border: 216 30% 22%;
-    --sidebar-ring: 210 100% 30%;
-
-    /* Custom tokens */
-    --barca-blue: 210 100% 30%;
-    --barca-red: 340 100% 32%;
-    --barca-gold: 46 90% 49%;
-    --barca-navy: 216 60% 10%;
-    --barca-navy-light: 216 50% 15%;
-    --gradient-barca: linear-gradient(135deg, hsl(210 100% 30%), hsl(340 100% 32%));
-    --gradient-gold: linear-gradient(135deg, hsl(46 90% 49%), hsl(36 100% 55%));
-    --shadow-barca: 0 8px 32px -8px hsl(210 100% 30% / 0.4);
-    --shadow-red: 0 8px 32px -8px hsl(340 100% 32% / 0.3);
+    /* Spacing */
+    --space-section: 120px;
+    --space-card-gap: 24px;
+    --space-inner: 32px;
   }
 }
 
@@ -62,65 +68,55 @@
   }
 
   body {
-    @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+    @apply text-foreground;
+    background: var(--bg-void);
+    background-image: radial-gradient(
+      ellipse 120% 80% at 50% 0%,
+      #0A1428 0%,
+      #05070F 60%,
+      #000000 100%
+    );
+    background-attachment: fixed;
+    font-family: 'DM Sans', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
-  }
-
-  .font-handwritten {
-    font-family: 'Caveat', cursive;
+    font-family: 'Cormorant Garamond', serif;
   }
 }
 
 @layer utilities {
-  .text-gradient-barca {
+  .text-gradient-headline {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(210 100% 45%), hsl(340 100% 45%));
+    background-image: linear-gradient(
+      135deg,
+      #F0EDE8 0%,
+      #B8C4E8 50%,
+      #8A9FDB 100%
+    );
   }
 
-  .text-gradient-gold {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(46 90% 55%), hsl(36 100% 60%));
-  }
-
-  .border-gradient-barca {
-    border-image: linear-gradient(135deg, hsl(210 100% 30%), hsl(340 100% 32%)) 1;
-  }
-
-  .bg-diagonal-stripes {
-    background-image: repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 40px,
-      hsl(210 100% 30% / 0.03) 40px,
-      hsl(210 100% 30% / 0.03) 80px,
-      transparent 80px,
-      transparent 120px,
-      hsl(340 100% 32% / 0.03) 120px,
-      hsl(340 100% 32% / 0.03) 160px
+  .glow-feature {
+    background-image: radial-gradient(
+      ellipse 80% 60% at 50% 30%,
+      rgba(26,86,219,0.08) 0%,
+      transparent 70%
     );
   }
 
   .glass-card {
-    @apply backdrop-blur-xl border;
-    background: hsl(216 50% 13% / 0.8);
-    border-color: hsl(210 100% 30% / 0.15);
+    @apply backdrop-blur-xl border border-[var(--border-subtle)];
+    background-color: var(--bg-surface);
   }
 
   .glass-card-hover:hover {
-    border-color: hsl(340 100% 32% / 0.4);
-    box-shadow: 0 8px 32px -8px hsl(340 100% 32% / 0.2);
+    border-color: var(--border-active);
   }
 
-  .glow-blue {
-    box-shadow: 0 0 20px hsl(210 100% 30% / 0.3), 0 0 60px hsl(210 100% 30% / 0.1);
-  }
-
-  .glow-red {
-    box-shadow: 0 0 20px hsl(340 100% 32% / 0.3), 0 0 60px hsl(340 100% 32% / 0.1);
+  /* Legacy overrides to prevent crashing before full refactor */
+  .text-gradient-barca {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, var(--blau-primary), var(--grana-fire));
   }
 }
 
@@ -129,14 +125,14 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: hsl(216 60% 10%);
+  background: var(--bg-void);
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(210 100% 30% / 0.5);
+  background: var(--bg-elevated);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(340 100% 32% / 0.7);
+  background: var(--text-tertiary);
 }
 
 html {

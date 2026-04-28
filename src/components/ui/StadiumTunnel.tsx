@@ -17,11 +17,8 @@ const StadiumTunnel = () => {
         <img
           src={tunnelImage}
           alt="Camp Nou Tunnel"
-          className="w-full h-full object-cover opacity-40"
+          className="w-full h-full object-cover opacity-15"
         />
-        {/* Darker overlays for better text readability */}
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="absolute inset-0 bg-barca-navy/40 mix-blend-multiply" />
       </motion.div>
     </div>
   );
