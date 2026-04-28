@@ -41,7 +41,7 @@ const projectsData = [
 
 const ProjectCarousel = () => {
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 sm:px-12 py-12">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-12 py-6">
       <Carousel
         opts={{
           align: "start",
@@ -64,7 +64,7 @@ const ProjectCarousel = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <div className="flex justify-center gap-4 mt-16">
+        <div className="flex justify-center gap-4 mt-8">
           <CarouselPrevious className="relative inset-auto translate-y-0 h-12 w-12 bg-transparent border border-white/10 hover:border-white/30 text-muted-foreground hover:text-foreground hover:bg-white/5 transition-all" />
           <CarouselNext className="relative inset-auto translate-y-0 h-12 w-12 bg-transparent border border-white/10 hover:border-white/30 text-muted-foreground hover:text-foreground hover:bg-white/5 transition-all" />
         </div>

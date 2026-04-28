@@ -3,12 +3,12 @@ import ProjectCarousel from "@/components/ProjectCarousel";
 
 const Projects = () => {
   return (
-    <div className="min-h-screen bg-barca-navy text-foreground overflow-x-hidden relative">
-      <div className="relative z-10">
+    <div className="min-h-screen flex flex-col bg-barca-navy text-foreground overflow-x-hidden relative">
+      <div className="relative z-10 flex flex-col flex-grow">
         <Navbar />
 
-        <main className="pt-32">
-          <div className="text-center mb-2 mt-8 px-6">
+        <main className="pt-24 pb-12 flex flex-col flex-grow justify-center">
+          <div className="text-center mb-0 mt-4 px-6">
             <div className="w-12 h-1 bg-accent rounded-full mx-auto mb-4" />
             <h2 className="font-heading font-black text-3xl sm:text-4xl lg:text-5xl text-accent mb-2 italic tracking-wide uppercase">
               Season Highlights
