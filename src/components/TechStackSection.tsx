@@ -1,32 +1,33 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useRef, useState } from "react";
 import {
   Code2, FileCode, Server, FileType, Database, Wind, Terminal, Box,
   GitBranch, PenTool, HardDrive, Layers, Workflow, Cloud, Flame, Circle
 } from "lucide-react";
 
 const squadList = [
-  { name: "React", icon: Code2 },
-  { name: "Next.js", icon: FileCode },
-  { name: "Node.js", icon: Server },
-  { name: "TypeScript", icon: FileType },
-  { name: "MongoDB", icon: Database },
-  { name: "Tailwind", icon: Wind },
-  { name: "Python", icon: Terminal },
-  { name: "Docker", icon: Box },
-  { name: "Git", icon: GitBranch },
-  { name: "Figma", icon: PenTool },
-  { name: "PostgreSQL", icon: HardDrive },
-  { name: "Redux", icon: Layers },
-  { name: "Express", icon: Workflow },
-  { name: "AWS", icon: Cloud },
-  { name: "Firebase", icon: Flame },
-  { name: "GraphQL", icon: Circle },
+  { name: "React", icon: Code2, desc: "A JavaScript library for building component-driven UI." },
+  { name: "Next.js", icon: FileCode, desc: "A React framework for production-grade applications." },
+  { name: "Node.js", icon: Server, desc: "A runtime environment for server-side JavaScript." },
+  { name: "TypeScript", icon: FileType, desc: "A strongly typed language that builds on JavaScript." },
+  { name: "MongoDB", icon: Database, desc: "A NoSQL database program using JSON-like documents." },
+  { name: "Tailwind", icon: Wind, desc: "A utility-first CSS framework for rapid UI dev." },
+  { name: "Python", icon: Terminal, desc: "A high-level programming language known for readability." },
+  { name: "Docker", icon: Box, desc: "Platform for developing and running apps in containers." },
+  { name: "Git", icon: GitBranch, desc: "Version control system for tracking source code changes." },
+  { name: "Figma", icon: PenTool, desc: "A collaborative web application for interface design." },
+  { name: "PostgreSQL", icon: HardDrive, desc: "An open-source object-relational database system." },
+  { name: "Redux", icon: Layers, desc: "A predictable state container for JavaScript apps." },
+  { name: "Express", icon: Workflow, desc: "A minimal and flexible Node.js web framework." },
+  { name: "AWS", icon: Cloud, desc: "Comprehensive cloud computing platform provided by Amazon." },
+  { name: "Firebase", icon: Flame, desc: "Google's platform for creating mobile and web apps." },
+  { name: "GraphQL", icon: Circle, desc: "A query language for APIs and fulfilling those queries." },
 ];
 
 const TechStackSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const [activeTech, setActiveTech] = useState<string | null>(null);
 
   return (
     <section id="techstack" className="py-24 relative">
@@ -71,7 +72,8 @@ const TechStackSection = () => {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={isInView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ duration: 0.4, delay: 0.3 + i * 0.04 }}
-                  className="glass-card glass-card-hover rounded-xl p-4 flex flex-col items-center justify-center gap-3 cursor-default group transition-all duration-300"
+                  onClick={() => setActiveTech(activeTech === tech.name ? null : tech.name)}
+                  className="glass-card glass-card-hover rounded-xl p-4 flex flex-col items-center justify-center gap-3 cursor-pointer group transition-all duration-300 relative overflow-hidden"
                 >
                   <tech.icon
                     size={28}
@@ -80,6 +82,21 @@ const TechStackSection = () => {
                   <span className="font-heading font-bold text-xs uppercase tracking-wider text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                     {tech.name}
                   </span>
+                  
+                  <AnimatePresence>
+                    {activeTech === tech.name && (
+                      <motion.div 
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        className="absolute inset-0 z-10 bg-barca-navy/95 backdrop-blur-md p-3 flex items-center justify-center text-center rounded-xl"
+                      >
+                        <p className="font-mono text-[10px] sm:text-[11px] leading-relaxed text-white/90">
+                          {tech.desc}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </motion.div>
               ))}
             </div>

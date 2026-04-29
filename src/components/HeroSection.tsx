@@ -98,7 +98,7 @@ const HeroSection = () => {
                 <img
                   src={barcaPhoto}
                   alt="Dhruv Tiwari"
-                  className="w-full h-full object-cover object-center mix-blend-luminosity hover:mix-blend-normal transition-all duration-700"
+                  className="w-full h-full object-cover object-center transition-all duration-700"
                 />
               </div>
               {/* Subtle back glow instead of chaotic borders */}
