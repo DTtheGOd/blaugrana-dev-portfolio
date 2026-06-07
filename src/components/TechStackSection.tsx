@@ -2,7 +2,8 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
 import {
   Code2, FileCode, Server, FileType, Database, Wind, Terminal, Box,
-  GitBranch, PenTool, HardDrive, Layers, Workflow, Cloud, Flame, Circle
+  GitBranch, PenTool, HardDrive, Layers, Workflow, Cloud, Flame, Circle,
+  GraduationCap, Trophy, Activity
 } from "lucide-react";
 
 const squadList = [
@@ -30,23 +31,9 @@ const TechStackSection = () => {
   const [activeTech, setActiveTech] = useState<string | null>(null);
 
   return (
-    <section id="techstack" className="py-24 relative">
+    <section id="techstack" className="py-8 relative" ref={ref}>
       <div className="container mx-auto px-6">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <div className="w-12 h-1 bg-accent rounded-full mx-auto mb-4" />
-          <h2 className="font-heading font-black text-3xl sm:text-4xl lg:text-5xl text-accent mb-2 italic tracking-wide uppercase">
-            Tactical Analysis
-          </h2>
-          <p className="text-muted-foreground font-heading text-sm tracking-[0.3em] uppercase">
-            — Tech Stack & Achievements —
-          </p>
-        </motion.div>
+
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
           {/* Squad List - Left Side */}
@@ -58,11 +45,9 @@ const TechStackSection = () => {
           >
             <div className="flex items-center justify-between mb-6">
               <h3 className="font-heading font-black text-lg text-foreground uppercase tracking-wider">
-                Squad List
+                Skill List
               </h3>
-              <span className="font-heading text-xs text-muted-foreground tracking-[0.2em] uppercase">
-                System: 4-3-3 Attack
-              </span>
+
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -82,10 +67,10 @@ const TechStackSection = () => {
                   <span className="font-heading font-bold text-xs uppercase tracking-wider text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                     {tech.name}
                   </span>
-                  
+
                   <AnimatePresence>
                     {activeTech === tech.name && (
-                      <motion.div 
+                      <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
@@ -111,65 +96,67 @@ const TechStackSection = () => {
           >
             <div className="flex items-center justify-between mb-6">
               <h3 className="font-heading font-black text-lg text-foreground uppercase tracking-wider">
-                Match Stats
+                Career Summary
               </h3>
-              <span className="flex items-center gap-2 text-xs font-heading text-muted-foreground uppercase tracking-wider">
-                <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-                Live Feed
-              </span>
             </div>
 
             {/* Player Card */}
-            <div className="glass-card rounded-xl p-5 mb-4 border-t-2 border-t-primary">
-              <div className="flex items-center justify-between mb-5">
-                <div>
-                  <p className="text-[10px] font-heading text-muted-foreground uppercase tracking-widest">Player ID</p>
-                  <p className="font-heading font-black text-lg text-foreground">DHRUV_DEV</p>
+            <div className="glass-card rounded-2xl p-6 mb-4 relative overflow-hidden group">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent to-primary opacity-70" />
+              
+              <div className="flex items-center justify-between mb-8">
+                <div className="flex flex-col gap-1">
+                  <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest">Player ID</p>
+                  <p className="font-body font-bold text-xl text-foreground tracking-tight">DHRUV_DEV</p>
                 </div>
-                <div className="text-right">
-                  <p className="text-[10px] font-heading text-muted-foreground uppercase tracking-widest">Season</p>
-                  <p className="font-heading font-black text-lg text-accent">2024-25</p>
+                <div className="flex flex-col gap-1 items-end">
+                  <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest">Season</p>
+                  <p className="font-body font-bold text-lg text-accent tracking-tight">2024-25</p>
                 </div>
               </div>
 
               <div className="space-y-4">
                 {/* CGPA */}
-                <div className="flex items-center justify-between py-2 border-b border-border/50">
-                  <span className="text-sm font-heading text-muted-foreground flex items-center gap-2">
-                    <span className="text-accent">⊛</span> CGPA SCORE
+                <div className="flex items-center justify-between py-3 border-b border-white/5 group-hover:border-white/10 transition-colors">
+                  <span className="text-sm font-body font-medium text-white/70 flex items-center gap-3">
+                    <GraduationCap size={16} className="text-accent" />
+                    CGPA SCORE
                   </span>
-                  <span className="font-heading font-black text-lg text-foreground px-3 py-0.5 rounded border border-border bg-muted/30">
+                  <span className="font-mono font-semibold text-sm text-white px-3 py-1 rounded-full border border-white/10 bg-white/5">
                     8.2
                   </span>
                 </div>
 
                 {/* Bit N Build */}
-                <div className="flex items-center justify-between py-2 border-b border-border/50">
-                  <span className="text-sm font-heading text-muted-foreground flex items-center gap-2">
-                    <span className="text-accent">⚡</span> BIT N BUILD
+                <div className="flex items-center justify-between py-3 border-b border-white/5 group-hover:border-white/10 transition-colors">
+                  <span className="text-sm font-body font-medium text-white/70 flex items-center gap-3">
+                    <Trophy size={16} className="text-accent" />
+                    BIT N BUILD
                   </span>
-                  <span className="font-heading font-black text-sm text-accent-foreground bg-accent px-3 py-1 rounded">
+                  <span className="font-body font-bold text-[11px] uppercase tracking-wider text-accent-foreground bg-accent px-3 py-1 rounded-full shadow-[0_0_15px_rgba(201,168,76,0.3)]">
                     FINALIST
                   </span>
                 </div>
 
                 {/* Code Housie */}
-                <div className="flex items-center justify-between py-2 border-b border-border/50">
-                  <span className="text-sm font-heading text-muted-foreground flex items-center gap-2">
-                    <span className="text-primary">&lt;/&gt;</span> CODE HOUSIE
+                <div className="flex items-center justify-between py-3 border-b border-white/5 group-hover:border-white/10 transition-colors">
+                  <span className="text-sm font-body font-medium text-white/70 flex items-center gap-3">
+                    <Code2 size={16} className="text-primary" />
+                    CODE HOUSIE
                   </span>
-                  <span className="font-heading font-black text-sm text-foreground bg-muted/50 px-3 py-1 rounded border border-border">
+                  <span className="font-body font-bold text-[11px] uppercase tracking-wider text-white px-3 py-1 rounded-full border border-white/10 bg-white/5">
                     RUNNER UP
                   </span>
                 </div>
 
                 {/* Current Form */}
-                <div className="flex items-center justify-between py-2">
-                  <span className="text-sm font-heading text-muted-foreground flex items-center gap-2">
-                    <span className="text-accent">✦</span> CURRENT FORM
+                <div className="flex items-center justify-between py-3">
+                  <span className="text-sm font-body font-medium text-white/70 flex items-center gap-3">
+                    <Activity size={16} className="text-secondary" />
+                    CURRENT FORM
                   </span>
-                  <span className="font-heading font-bold text-sm text-foreground flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-secondary" />
+                  <span className="font-body font-bold text-[11px] uppercase tracking-wider text-white flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5">
+                    <span className="w-2 h-2 rounded-full bg-secondary animate-pulse shadow-[0_0_8px_var(--secondary)]" />
                     ACTIVE
                   </span>
                 </div>
@@ -177,14 +164,16 @@ const TechStackSection = () => {
             </div>
 
             {/* Bottom Stats */}
-            <div className="grid grid-cols-2 gap-3">
-              <div className="glass-card rounded-xl p-4 border-t-2 border-t-primary">
-                <p className="text-[10px] font-heading text-muted-foreground uppercase tracking-widest mb-1">Total Commits</p>
-                <p className="font-heading font-black text-2xl text-foreground">1,240+</p>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="glass-card rounded-2xl p-5 relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+                <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest mb-2">Total Commits</p>
+                <p className="font-body font-black text-3xl text-white tracking-tighter">1,240+</p>
               </div>
-              <div className="glass-card rounded-xl p-4 border-t-2 border-t-primary">
-                <p className="text-[10px] font-heading text-muted-foreground uppercase tracking-widest mb-1">Projects Live</p>
-                <p className="font-heading font-black text-2xl text-foreground">08</p>
+              <div className="glass-card rounded-2xl p-5 relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+                <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest mb-2">Projects Live</p>
+                <p className="font-body font-black text-3xl text-white tracking-tighter">08</p>
               </div>
             </div>
           </motion.div>

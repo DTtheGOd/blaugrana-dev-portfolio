@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useTransform, animate, useInView } from 'framer-motion';
 import { useRef, useEffect } from 'react';
-import Navbar from "@/components/Navbar";
+import IslandNavbar from "@/components/IslandNavbar";
 
 export default function IndianBankCaseStudy() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -8,7 +8,7 @@ export default function IndianBankCaseStudy() {
   return (
     <div ref={containerRef} className="relative min-h-screen overflow-x-hidden selection:bg-primary selection:text-white bg-barca-navy text-foreground pb-32">
       <div className="relative z-50">
-        <Navbar />
+        <IslandNavbar backLink="/projects" backLabel="Projects" />
       </div>
 
       <HeroSection />

@@ -118,6 +118,14 @@
     @apply bg-clip-text text-transparent;
     background-image: linear-gradient(135deg, var(--blau-primary), var(--grana-fire));
   }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 /* Scrollbar styling */

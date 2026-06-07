@@ -122,10 +122,10 @@ const ProjectsSection = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-heading font-black text-3xl sm:text-4xl text-secondary mb-2">
+          <h2 className="font-heading font-black text-2xl sm:text-3xl text-white mb-1">
             PROJECTS
           </h2>
-          <div className="w-16 h-1 bg-accent rounded-full mb-12" />
+          <div className="w-12 h-1 bg-white rounded-full mb-6" />
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

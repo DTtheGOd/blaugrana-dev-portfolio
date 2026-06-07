@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+import IslandNavbar from "@/components/IslandNavbar";
 
 export default function NirmaanUIProject() {
   const techStack = ["React", "Node.js", "MongoDB", "React Live", "Cloudinary"];
@@ -6,7 +6,7 @@ export default function NirmaanUIProject() {
   return (
     <div className="relative min-h-screen overflow-x-hidden selection:bg-primary selection:text-white bg-barca-navy text-foreground">
       <div className="relative z-10">
-        <Navbar />
+        <IslandNavbar backLink="/projects" backLabel="Projects" />
       </div>
       
       <main className="relative pt-32 pb-24 px-6 md:px-12 container mx-auto max-w-7xl">
