@@ -13,24 +13,22 @@ export default function IndianBankCaseStudy() {
 
       <HeroSection />
 
-      <PreOverviewShowcase />
-      
       <div className="container mx-auto max-w-5xl px-6 md:px-12 flex flex-col gap-24 mt-24">
-        <Section 
-          number="01" 
-          title="Overview" 
+        <Section
+          number="01"
+          title="Overview"
           content="Indian Bank completed its merger with Allahabad Bank in 2020 — but the mobile app still felt like two separate products forced together. 130 million customers faced inconsistent UI patterns, no dark mode, a confusing payment flow, and an onboarding screen that hadn't been touched since 2018. The bank came to us seeking a responsive app redesign that would help them better serve their diverse customer base, promote trust through transparency, and ultimately increase digital adoption."
         />
-        
-        <Section 
-          number="02" 
-          title="Problem" 
+
+        <Section
+          number="02"
+          title="Problem"
           content="Prior to their redesign, Indian Bank faced a number of challenges with their application that were hindering their ability to effectively compete with new-age fintechs. Their previous app was outdated, generic, difficult to navigate, and lacked the modern banking features necessary to drive engagement. In addition, there was a lack of unified branding, which made it difficult for legacy Allahabad Bank customers to feel at home in the new ecosystem."
         />
 
-        <Section 
-          number="03" 
-          title="Design Process" 
+        <Section
+          number="03"
+          title="Design Process"
           content="The project began with a comprehensive audit of the existing user journeys to understand the drop-off points. This was followed by extensive competitor research to identify modern banking standards. Working within a team of 6, I helped conduct surveys and research to gather feedback on the new information architecture.\n\nAfter refining the wireframes with the bank's stakeholders, I contributed to developing the high-fidelity screens, incorporating a new unified design system. As mobile banking was crucial for their users, we meticulously crafted the experience for one-handed use, considering best practices for seamless navigation."
         />
       </div>
@@ -38,12 +36,14 @@ export default function IndianBankCaseStudy() {
       <ImageShowcase />
 
       <div className="container mx-auto max-w-5xl px-6 md:px-12 flex flex-col gap-24 mt-24 mb-32">
-        <Section 
-          number="04" 
-          title="Solution & Results" 
+        <Section
+          number="04"
+          title="Solution & Results"
           content="Through careful research, planning, and design iteration, I was able to deliver an application interface that addressed these issues head-on, delivering a seamless banking experience that aligned with Indian Bank's mission to serve a new digital India. I streamlined the payment flow to reduce steps by 40%, and introduced a 'Vibe Mode' (Dark Theme) to elevate the premium feel.\n\nSince launching the new interface, the feedback has been overwhelmingly positive. The intuitive design has significantly reduced support queries and increased feature adoption across all demographics."
         />
       </div>
+
+      <BeforeAfterSection />
 
       <MetricsSection />
     </div>
@@ -55,16 +55,16 @@ function HeroSection() {
     <section className="relative px-6 md:px-12 pt-32 pb-12 max-w-7xl mx-auto border-b border-white/[0.07]">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
         <div className="lg:col-span-6 flex flex-col items-start justify-center">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: [0.19, 1, 0.22, 1] }}
             className="text-[clamp(3.5rem,6vw,6.5rem)] font-heading font-light tracking-tight text-foreground mb-6 leading-[0.85] -ml-1"
           >
-            Indian<br/>Bank
+            Indian<br />Bank
           </motion.h1>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.2 }}
@@ -73,8 +73,8 @@ function HeroSection() {
             <p>Survey, Research & UI/UX</p>
             <p className="text-sm uppercase tracking-widest text-accent mt-2">Team of 6 • App Revamp</p>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, delay: 0.4 }}
@@ -91,7 +91,7 @@ function HeroSection() {
           </motion.div>
         </div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.5, delay: 0.3, ease: [0.19, 1, 0.22, 1] }}
@@ -101,7 +101,7 @@ function HeroSection() {
           <PhoneFrame image="/indianbanklanding.png" />
         </motion.div>
       </div>
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
@@ -115,11 +115,10 @@ function HeroSection() {
 
 function PhoneFrame({ image }: { image: string }) {
   return (
-    <div className="w-full max-w-[320px] aspect-[9/19.5] bg-[#15171F] border-[10px] border-[#15171F] rounded-[3.5rem] p-2.5 overflow-hidden relative shadow-[0_0_50px_rgba(0,0,0,0.5)] z-10">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-7 bg-[#15171F] rounded-b-3xl z-20" />
+    <div className="w-full max-w-[380px] aspect-[9/19.5] bg-[#15171F] border-[10px] border-[#15171F] rounded-[3.5rem] overflow-hidden relative shadow-[0_0_50px_rgba(0,0,0,0.5)] z-10">
       <div className="w-full h-full rounded-[2.8rem] overflow-hidden bg-background relative flex items-center justify-center">
         {image ? (
-          <img src={image} className="w-full h-full object-cover" alt="Phone screen" referrerPolicy="no-referrer" />
+          <img src={image} className="w-full h-full object-cover object-top" alt="Phone screen" referrerPolicy="no-referrer" />
         ) : (
           <div className="w-full h-full bg-white/5 flex items-center justify-center border border-white/10 rounded-[2.8rem]">
             <span className="font-mono text-[10px] text-white/20 uppercase tracking-widest">Image Upload</span>
@@ -132,7 +131,7 @@ function PhoneFrame({ image }: { image: string }) {
 
 function Section({ number, title, content }: { number: string, title: string, content: string }) {
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
@@ -153,34 +152,155 @@ function Section({ number, title, content }: { number: string, title: string, co
   );
 }
 
+const benefits = [
+  { title: "Unified Brand Identity", desc: "Merged Indian Bank + Allahabad Bank visual language into one coherent design system — no more duplicate patterns or conflicting colours." },
+  { title: "40% Fewer Payment Steps", desc: "Streamlined the payment flow from 7 screens down to 4, cutting transaction time significantly and reducing drop-off." },
+  { title: "Modern Accessibility", desc: "Introduced clear typography hierarchy, sufficient contrast ratios, and larger tap targets for easier use across all age groups." },
+  { title: "Dark Mode (Vibe Mode)", desc: "Added a premium dark theme reducing eye strain and aligning with modern banking standards expected by younger users." },
+  { title: "Contextual Notifications", desc: "Replaced generic push alerts with inline, action-aware notifications that let users respond without leaving context." },
+  { title: "Biometric-First Login", desc: "Moved biometric authentication to the primary login path — reducing password friction and cutting login time by 2x." },
+];
+
+function BeforeAfterSection() {
+  const pairs = [
+    { label: "Landing Screen", before: "/indianbankoldlanding.png", after: "/indianbanklanding.png" },
+    { label: "Login Screen", before: "/indianbankoldlogin.png", after: "/biometric.png" },
+    { label: "Dashboard", before: "/indianbankolddashboard.png", after: "/homedashboard.png" },
+  ];
+
+  return (
+    <section className="py-24 border-t border-white/[0.06]">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex items-baseline gap-4 mb-4"
+        >
+          <span className="font-mono text-sm text-accent tracking-widest">05.</span>
+          <h2 className="text-4xl md:text-5xl font-heading text-foreground font-medium tracking-tight">
+            Before vs After
+          </h2>
+        </motion.div>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.15 }}
+          className="text-white/50 font-body text-base mb-16 max-w-xl"
+        >
+          Side-by-side comparison of the original screens and our redesigned counterparts.
+        </motion.p>
+
+        {/* Comparison pairs */}
+        <div className="flex flex-col gap-16 mb-20">
+          {pairs.map((pair, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="flex flex-col gap-4"
+            >
+              <span className="font-mono text-xs uppercase tracking-[0.2em] text-white/40">{pair.label}</span>
+              <div className="grid grid-cols-2 gap-6 md:gap-12">
+                {/* Before */}
+                <div className="flex flex-col items-center gap-3">
+                  <span className="text-[0.6rem] font-mono uppercase tracking-widest text-red-400/80 border border-red-400/20 bg-red-400/5 px-3 py-1 rounded-full">Before</span>
+                  <div
+                    className="w-full max-w-[320px] mx-auto aspect-[9/19.5] bg-[#0e1117] border-[8px] border-[#1a1f2e] rounded-[2.5rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
+                  >
+                    <img src={pair.before} alt={`Before — ${pair.label}`} className="w-full h-full object-cover object-top" />
+                  </div>
+                </div>
+                {/* After */}
+                <div className="flex flex-col items-center gap-3">
+                  <span className="text-[0.6rem] font-mono uppercase tracking-widest text-accent/90 border border-accent/20 bg-accent/5 px-3 py-1 rounded-full">After</span>
+                  <div
+                    className="w-full max-w-[320px] mx-auto aspect-[9/19.5] bg-[#0e1117] border-[8px] border-accent/20 rounded-[2.5rem] overflow-hidden"
+                    style={{ boxShadow: "0 20px 60px rgba(0,0,0,0.6), 0 0 40px hsl(46 90% 49% / 0.12)" }}
+                  >
+                    <img src={pair.after} alt={`After — ${pair.label}`} className="w-full h-full object-cover object-top" />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Benefits grid */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-10"
+        >
+          <h3 className="font-heading text-2xl md:text-3xl text-foreground font-medium tracking-tight mb-10">
+            Why the new design is better
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {benefits.map((b, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className="flex flex-col gap-3 p-6 rounded-2xl border border-white/[0.06] bg-white/[0.02] hover:border-accent/30 hover:bg-accent/[0.04] transition-all duration-300"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
+                  <h4 className="font-heading text-base text-foreground font-medium">{b.title}</h4>
+                </div>
+                <p className="text-sm font-body text-white/50 leading-relaxed pl-4">{b.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+      </div>
+    </section>
+  );
+}
+
 function ImageShowcase() {
   const images = [
-    { src: "/onboarding.png", alt: "Onboarding Flow" },
-    { src: "/homedashboard.png", alt: "Home Dashboard" },
-    { src: "/transactionintelligence.png", alt: "Transactions" },
-    { src: "/vibemode.png", alt: "Dark Theme" },
+    { src: "/onboarding.png", label: "Onboarding" },
+    { src: "/homedashboard.png", label: "Home Dashboard" },
+    { src: "/transactionintelligence.png", label: "Transaction History" },
+    { src: "/paymentflow.png", label: "Payment Flow" },
   ];
 
   return (
     <section className="mt-24 w-full bg-black/20 border-y border-white/[0.03] py-24">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center font-heading text-2xl md:text-3xl font-light text-white/80 mb-16 tracking-tight"
+        >
+          A glimpse of some of the screens we made
+        </motion.p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 justify-items-center">
           {images.map((img, idx) => (
-            <motion.div 
+            <motion.div
               key={idx}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.15 }}
+              className="flex flex-col items-center gap-4 w-full"
             >
+              <span className="font-mono text-xs uppercase tracking-[0.2em] text-white font-medium">
+                {img.label}
+              </span>
               <PhoneFrame image={img.src} />
             </motion.div>
           ))}
-        </div>
-        <div className="mt-20 text-center text-sm italic text-white/40 font-light max-w-xl mx-auto">
-          Pictured above: views of some of the final approved designs created for the new application.
-          <br /><br />
-          <span className="text-white/20">(Left to Right: Onboarding, Home Dashboard, Transaction History, Vibe Mode)</span>
         </div>
       </div>
     </section>
@@ -191,13 +311,13 @@ function MetricsSection() {
   return (
     <section className="flex items-center justify-center border-t border-white/[0.07] py-32 md:py-48 relative overflow-hidden bg-black/20">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[150%] bg-accent/5 blur-[150px] rounded-[100%] pointer-events-none opacity-40" />
-      
+
       <div className="w-full px-4 md:px-12 relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-16 items-center justify-items-center max-w-[1600px] mx-auto">
-          <MetricCard value={40} suffix="%" label={<>Decrease In<br/>Payment Steps</>} />
-          <MetricCard value={130} suffix="M" label={<>Customer Base<br/>Supported</>} />
-          <MetricCard value={2} suffix="x" label={<>Increase In<br/>Biometric Logins</>} />
-          <MetricCard value={100} suffix="%" label={<>Brand Elements<br/>Unified</>} />
+          <MetricCard value={40} suffix="%" label={<>Decrease In<br />Payment Steps</>} />
+          <MetricCard value={130} suffix="M" label={<>Customer Base<br />Supported</>} />
+          <MetricCard value={2} suffix="x" label={<>Increase In<br />Biometric Logins</>} />
+          <MetricCard value={100} suffix="%" label={<>Brand Elements<br />Unified</>} />
         </div>
       </div>
     </section>
@@ -206,7 +326,7 @@ function MetricsSection() {
 
 function MetricCard({ value, suffix, label }: { value: number, suffix: string, label: React.ReactNode }) {
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
@@ -223,33 +343,7 @@ function MetricCard({ value, suffix, label }: { value: number, suffix: string, l
   );
 }
 
-function PreOverviewShowcase() {
-  const images = [
-    { src: "/biometric.png", alt: "Biometric Authentication" },
-    { src: "/notification.png", alt: "Contextual Notifications" },
-    { src: "/paymentflow.png", alt: "Optimized Payment Flow" },
-  ];
 
-  return (
-    <section className="w-full bg-black/10 border-b border-white/[0.03] py-24">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 justify-items-center">
-          {images.map((img, idx) => (
-            <motion.div 
-              key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.15 }}
-            >
-              <PhoneFrame image={img.src} />
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function AnimatedNumber({ value, suffix = "" }: { value: number, suffix?: string }) {
   const ref = useRef(null);

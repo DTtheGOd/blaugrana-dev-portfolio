@@ -7,7 +7,7 @@ const Contact = () => {
       <div className="relative z-10 flex-1 flex flex-col">
         <IslandNavbar backLink="/" backLabel="Home" />
         
-        <main className="flex-1 flex flex-col justify-center pt-32 pb-24">
+        <main className="flex-1 flex flex-col justify-center">
           <ContactSection />
         </main>
       </div>
